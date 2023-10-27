@@ -9,6 +9,7 @@ import mongoose from "mongoose";
 import path from "path";
 import corsOptions from "./config/cors";
 import connectMongoDB from "./config/database";
+import { userFixture } from "./fixtures/users";
 
 // middleware
 import credentials from "./middleware/credentials";
@@ -64,8 +65,8 @@ if (process.env.PROJECT_MODE === 'Production') {
 }
 
 // Routes
-import router from "./routes/api/auth";
-app.use("/api/v1", router);
+import authRouter from "./routes/api/auth";
+app.use("/api/v1", authRouter);
 
 // 404 Not Found
 app.all("*", (req, res) => {
@@ -76,8 +77,9 @@ app.all("*", (req, res) => {
 });
 
 
-mongoose.connection.once("open", () => {
+mongoose.connection.once("open", async () => {
   console.log(`🍃 MongoDB is connected`);
+  await userFixture()
   app.listen(PORT, () =>
     console.log(`🚀 Server ready at: http://localhost:${PORT}`)
   );
