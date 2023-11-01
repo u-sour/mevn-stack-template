@@ -43,7 +43,7 @@ app.use(cookieParser());
 app.use(authenticationMiddleware);
 
 // Static Frontend File
-app.use(express.static(path.resolve(__dirname, '../public')))
+app.use(express.static(path.resolve(__dirname, '../dist')))
 
 // Default error
 app.use(errorHandlerMiddleware);
@@ -67,6 +67,10 @@ if (process.env.PROJECT_MODE === 'Production') {
 // Routes
 import authRouter from "./routes/api/auth";
 app.use("/api/v1", authRouter);
+
+app.get('/', (req, res) => {
+  res.sendFile(path.join(__dirname, '../dist/index.html'))
+})
 
 // 404 Not Found
 app.all("*", (req, res) => {
