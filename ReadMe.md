@@ -4,17 +4,13 @@ This is a simple template for building "MEVN" stack with authentication.
 
 ## 🛸 Deployment
 
-it's simple you can deploy backend & frontend separately.
+it's simple you can deploy frontend and backend separately.
 
 💻 **Frontend** you can choose render, vercel, netify etc...
 
 🗃️ **Backend** you can choose render, vercel etc...
 
-how about deploy backend and frontend together ?
-
-yes, you can also deploy it on vercel or render.
-
-## 🤔 How to deploy on [Render](https://render.com/) ?
+## 🤔 How to deploy frontend and backend together on [Render](https://render.com/) ?
 
 💻 **Frontend**
 
