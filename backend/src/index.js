@@ -68,7 +68,7 @@ if (process.env.PROJECT_MODE === 'Production') {
 import authRouter from "./routes/api/auth";
 app.use("/api/v1", authRouter);
 
-app.get('/', (req, res) => {
+app.get('/*', (req, res) => {
   res.sendFile(path.join(__dirname, '../public/index.html'))
 })
 
