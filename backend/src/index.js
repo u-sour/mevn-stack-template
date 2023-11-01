@@ -68,6 +68,13 @@ if (process.env.PROJECT_MODE === 'Production') {
 import authRouter from "./routes/api/auth";
 app.use("/api/v1", authRouter);
 
+// Deployment
+// you must set * to catch all server route
+// read more: https://sentry.io/answers/why-don-t-react-router-urls-work-when-refreshing-or-writing-manually/
+app.get('/*', (req, res) => {
+  res.sendFile(path.join(__dirname, '../public/index.html'))
+})
+
 // 404 Not Found
 app.all("*", (req, res) => {
   res.status(404);
