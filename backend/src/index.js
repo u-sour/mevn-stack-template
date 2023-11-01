@@ -43,7 +43,7 @@ app.use(cookieParser());
 app.use(authenticationMiddleware);
 
 // Static Frontend File
-app.use(express.static(path.resolve(__dirname, '../dist')))
+app.use(express.static(path.resolve(__dirname, '../public')))
 
 // Default error
 app.use(errorHandlerMiddleware);
@@ -69,7 +69,7 @@ import authRouter from "./routes/api/auth";
 app.use("/api/v1", authRouter);
 
 app.get('/', (req, res) => {
-  res.sendFile(path.join(__dirname, '../dist/index.html'))
+  res.sendFile(path.join(__dirname, '../public/index.html'))
 })
 
 // 404 Not Found
