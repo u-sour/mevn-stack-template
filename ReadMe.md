@@ -48,9 +48,14 @@ yes, you can also deploy it on vercel or render.
 ☁️ **Render**
 
 1. login > new > web service > build and deploy from a git repository
-2. select your rpo that you want to deploy > connet
+2. select your repo that you want to deploy > connet
 3. input the information that render require and your enviroment variables
-4. create web service and wait until it build successful
+
+   example:
+   
+![Screenshot from 2023-10-10 23-34-38](https://github.com/u-sour/mevn-stack-template/assets/145416126/5771e1eb-5986-46de-b163-4762e17cdb83)
+
+4. create web service then wait it until build successful
 
 **That's it, congratulation** 🥳
 
