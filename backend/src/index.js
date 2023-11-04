@@ -51,13 +51,14 @@ app.use(errorHandlerMiddleware);
 // Rate limiting
 if (process.env.PROJECT_MODE === 'Production') {
   const ms = 10;
-  const limit = 60;
+  const limit = 100;
   const limiter = rateLimit({
     windowMs: ms * 60 * 1000, // 10 minutes
-    limit: limit, // Limit each IP to 60 requests per `window` (here, per 10 minutes)
+    limit: limit, // Limit each IP to 100 requests per `window` (here, per 10 minutes)
     message: `Too many requests, please try again later after ${ms} minutes`,
     standardHeaders: 'draft-7', // draft-6: `RateLimit-*` headers; draft-7: combined `RateLimit` header
     legacyHeaders: false, // Disable the `X-RateLimit-*` headers
+    skip: (req, res) => req.path.startsWith('/'), // skip is true for /, false for all else
   })
 
   // Apply the rate limiting middleware to all requests
