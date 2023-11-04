@@ -96,7 +96,7 @@ const submit = async () => {
       router.replace({ name: 'login' })
     })
     .catch((err) => {
-      errorMessage.value = err.message
+      errorMessage.value = err.data.message
     })
 }
 </script>
