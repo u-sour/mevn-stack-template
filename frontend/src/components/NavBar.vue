@@ -2,7 +2,7 @@
   <nav class="navbar navbar-expand-lg bg-body-tertiary">
     <div class="container-fluid">
       <RouterLink :to="{ name: 'home' }" class="navbar-brand"
-        ><img src="./../../public/favicon.ico" alt="mevn"
+        ><img src="/favicon.ico" alt="mevn"
       /></RouterLink>
       <button
         class="navbar-toggler"
